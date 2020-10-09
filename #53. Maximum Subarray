@@ -37,7 +37,7 @@ class Solution {
     for(int i = 1; i < n; i++){   //using loop to iterate array nums from nums[1]
     	curr_max_sum = Math.max(nums[i], nums[i] + curr_max_num); 
 
-    	//If num[si] > curr_max_num + nums[i], adapt the original curr_max_ num, let curr_max_num = //nums[i] and let's start with this point to be the first element of subarray
+    	//If nums[i] > curr_max_num + nums[i], adapt the original curr_max_ num, let curr_max_num = //nums[i] and let's start with this point to be the first element of subarray
     	//If nums[i] < curr_max_num + nums[i], continue to add the element to curr_max_num
     	
     	max_sum = Math.max(max_sum, curr_max_sum); //let global max sum always keep the maximum value 
