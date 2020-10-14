@@ -53,8 +53,17 @@ Therefore, you can't travel around the circuit once no matter where you start.
 
 
 /* For this problem:
-   It is to if the gas in tank can cover the cost, so firstly, we need to verify if the sum of gas[i] - cost[i] > 0, if the sum > 0, it means can find a station to start journey and travel around the circuit
+   It is to if the gas in tank can cover the cost, so firstly, we need to verify if the sum of gas[i] - cost[i] > 0, if the sum > 0, 
+   it means can find a station to start journey and travel around the circuit once, vice versa. 
+   
+   So pick locally station which can start the jorney, then it would be a start station
  */
  
- Current local maximum sum (at this given point); global maximum sum
+/%%%%%%%% Coding: %%%%%%%%/
+
+class Solution {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        
+    }
+}
 
