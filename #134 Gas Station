@@ -53,7 +53,7 @@ Therefore, you can't travel around the circuit once no matter where you start.
 
 
 /* For this problem:
-   It is to if the gas in tank can cover the cost, so firstly, we need to verify if the sum of gas[i] - cost[i] > 0, if the sum > 0, 
+   It is to if the gas in tank can cover the cost, so firstly, we need to verify if the (sum of gas[i] - cost[i])> 0, if the sum > 0, 
    it means can find a station to start journey and travel around the circuit once, vice versa. 
    
    So pick locally station which can start the jorney, then it would be a start station
@@ -63,7 +63,29 @@ Therefore, you can't travel around the circuit once no matter where you start.
 
 class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
-        
+        int n = gas.length; // get the length of array
+        int sum_tank = 0; //to store sum of gas[i] - cost[i] in station i
+        for(int i = 0; i < n; i++) // to compute to total sum of gas[i] - cost[i]
+            sum_tank = sum_tank + (gas[i] - cost[i]);
+        if(sum_tank < 0)
+            return -1; //the whole array cannot travel around the circuit, cause the total gas cannot cover total cost
+        int curr_gas = 0; //current gas in station i, and the initial value is 0
+        int index = 0; // to label the start station of journey
+        int curr_tank = 0; // label current gas in tank
+        for(int i = 0; i < n; i++){
+            curr_gas = gas[i] - cost[i];
+            if(curr_gas < 0){
+                  index = i + 1;
+                  curr_tank = 0;
+            }
+            else
+                  curr_tank = curr_tank + curr_gas;
+        }
+        return index;
     }
 }
+
+/%%%%%%%% Time Complexity %%%%%%%%/
+
+Cause there are two loops from 0 to n - 1, so the time complexit is O(n)
 
